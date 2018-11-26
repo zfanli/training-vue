@@ -27,7 +27,7 @@ yarn run lint
 
 ## Why this repo?
 
-Fot these reasons list below, I created this repo to do some practices for be familiar with Vue.js.
+For reasons list below, I created this repo to do some practices for be familiar with Vue.js.
 
 - interested in Vue.js
 - try to build blog base on VuePress and was not familiar with Vue.js
