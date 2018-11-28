@@ -1,28 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <navigation class="header" title="Richard Zg"/>
+    <post-list class="list" :post-list="list" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navigation from "./components/Navigation.vue"
+import PostList from "./components/PostList.vue"
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    Navigation,
+    PostList
+  },
+  data: function () {
+    return {
+      list: [
+        {title: 'Post 1'},
+        {title: 'Post 2'},
+        {title: 'Post 3'},
+        {title: 'Post 4'},
+      ]
+    }
   }
-}
+};
 </script>
 
-<style>
+<style lang="scss">
+body {
+  margin: 0;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+
+  .list {
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
 }
 </style>
