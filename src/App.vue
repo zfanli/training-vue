@@ -6,8 +6,9 @@
 </template>
 
 <script>
-import Navigation from "./components/Navigation.vue"
-import PostList from "./components/PostList.vue"
+import Navigation from './components/Navigation.vue'
+import PostList from './components/PostList.vue'
+import data from './data'
 
 export default {
   name: "app",
@@ -17,12 +18,7 @@ export default {
   },
   data: function () {
     return {
-      list: [
-        {title: 'Post 1'},
-        {title: 'Post 2'},
-        {title: 'Post 3'},
-        {title: 'Post 4'},
-      ]
+      list: data.list
     }
   }
 };
