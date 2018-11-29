@@ -1,25 +1,26 @@
 <template>
-  <div id="app">
-    <navigation class="header" title="Richard Zg"/>
-    <post-list class="list" :post-list="list" />
+  <div class="app">
+    <navigation class="header" title="richard zg"/>
+    <router-view/>
+    <page-footer/>
   </div>
 </template>
 
 <script>
-import Navigation from './components/Navigation.vue'
-import PostList from './components/PostList.vue'
-import data from './data'
+import Navigation from "./components/Navigation.vue";
+import PageFooter from "./components/PageFooter.vue";
+import data from "./data";
 
 export default {
   name: "app",
   components: {
     Navigation,
-    PostList
+    PageFooter
   },
-  data: function () {
+  data: function() {
     return {
       list: data.list
-    }
+    };
   }
 };
 </script>
@@ -27,6 +28,7 @@ export default {
 <style lang="scss">
 body {
   margin: 0;
+  background-color: #eee;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -37,10 +39,5 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-
-  .list {
-    flex-shrink: 0;
-    flex-grow: 1;
-  }
 }
 </style>

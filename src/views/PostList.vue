@@ -11,27 +11,29 @@
 
 <script>
 export default {
-  name: 'PostList',
+  name: "PostList",
   props: {
     postList: {
       type: Array,
-      default: function () {
-        return []
+      default: function() {
+        return [];
       }
     }
   },
   computed: {
-    hasPosts: function () {
-      return this.postList.length !== 0
+    hasPosts: function() {
+      return this.postList.length !== 0;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .post-list {
-  background-color: #eee;
-  
+  background-color: transparent;
+  flex-shrink: 0;
+  flex-grow: 1;
+
   .title {
     text-transform: uppercase;
     font-weight: bold;
@@ -40,7 +42,6 @@ export default {
   }
 
   .list-body {
-
     @media (min-width: 1000px) {
       width: 700px;
       margin: 0 auto;
@@ -48,8 +49,8 @@ export default {
 
     .list-item {
       background-color: #fff;
-      margin: 1rem .5rem;
-      padding: .5rem;
+      margin: 1rem 0.5rem;
+      padding: 0.5rem;
       border-radius: 5px;
     }
   }

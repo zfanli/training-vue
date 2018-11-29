@@ -1,7 +1,7 @@
 <template>
   <nav class="nav">
     <div class="nav-body">
-      <div class="logo">{{ title }}</div>
+      <router-link class="logo" to="/">{{ title }}</router-link>
     </div>
   </nav>
 </template>
@@ -22,8 +22,11 @@ export default {
   line-height: 45px;
   background-color: #333;
   width: 100%;
+  flex-shrink: 0;
 
   .nav-body {
+    font-family: "Courier New", Courier, monospace;
+
     @media (min-width: 1000px) {
       width: 700px;
       margin: 0 auto;
@@ -32,8 +35,8 @@ export default {
     .logo {
       color: white;
       margin: 0 0.5rem;
-      text-transform: uppercase;
       cursor: pointer;
+      text-decoration: none;
     }
   }
 }
