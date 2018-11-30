@@ -18,6 +18,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/common.scss';
+
 .nav {
   display: flex;
   height: 45px;
@@ -29,7 +31,7 @@ export default {
   .nav-body {
     font-family: 'Courier New', Courier, monospace;
 
-    @media (min-width: 1000px) {
+    @media (min-width: $max-screen-width) {
       width: 700px;
       margin: 0 auto;
     }

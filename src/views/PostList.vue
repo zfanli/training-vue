@@ -26,6 +26,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/common.scss';
+
 .post-list {
   background-color: transparent;
   flex-shrink: 0;
@@ -39,7 +41,7 @@ export default {
   }
 
   .list-body {
-    @media (min-width: 1000px) {
+    @media (min-width: $max-screen-width) {
       width: 700px;
       margin: 0 auto;
     }
