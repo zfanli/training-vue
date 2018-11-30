@@ -8,11 +8,11 @@
 
 <script>
 export default {
-  name: "Navigation",
+  name: 'Navigation',
   props: {
-    title: String
-  }
-};
+    title: String,
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -25,7 +25,7 @@ export default {
   flex-shrink: 0;
 
   .nav-body {
-    font-family: "Courier New", Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
 
     @media (min-width: 1000px) {
       width: 700px;

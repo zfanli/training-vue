@@ -7,31 +7,31 @@
 </template>
 
 <script>
-import Navigation from "./components/Navigation.vue";
-import PageFooter from "./components/PageFooter.vue";
-import data from "./data";
+import Navigation from './components/Navigation.vue'
+import PageFooter from './components/PageFooter.vue'
+import data from './data'
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     Navigation,
-    PageFooter
+    PageFooter,
   },
   data: function() {
     return {
-      list: data.list
-    };
-  }
-};
+      list: data.list,
+    }
+  },
+}
 </script>
 
 <style lang="scss">
 body {
   margin: 0;
-  background-color: #eee;
+  background-color: #f5f5f5;
 }
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

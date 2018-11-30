@@ -11,21 +11,21 @@
 
 <script>
 export default {
-  name: "PostList",
+  name: 'PostList',
   props: {
     postList: {
       type: Array,
       default: function() {
-        return [];
-      }
-    }
+        return []
+      },
+    },
   },
   computed: {
     hasPosts: function() {
-      return this.postList.length !== 0;
-    }
-  }
-};
+      return this.postList.length !== 0
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>

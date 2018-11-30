@@ -7,8 +7,8 @@
 
 <script>
 export default {
-  name: "PageFooter"
-};
+  name: 'PageFooter',
+}
 </script>
 
 <style lang="scss" scoped>
