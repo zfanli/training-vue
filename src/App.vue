@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <navigation class="header" title="richard zg"/>
+    <navigation class="header"/>
     <router-view/>
     <page-footer/>
   </div>
@@ -9,18 +9,12 @@
 <script>
 import Navigation from './components/Navigation.vue'
 import PageFooter from './components/PageFooter.vue'
-import data from './data'
 
 export default {
   name: 'app',
   components: {
     Navigation,
     PageFooter,
-  },
-  data: function() {
-    return {
-      list: data.list,
-    }
   },
 }
 </script>
