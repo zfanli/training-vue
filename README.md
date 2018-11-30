@@ -25,6 +25,16 @@ yarn run test
 yarn run lint
 ```
 
+## About code styles
+
+> Formatter: prettier. The default formatter integrated by Vetur, a plug-in of VSCode.
+
+Key | Value | Description
+--- | --- | ---
+singleQuote | `true` | Use single quotes
+trailingComma | `"es5"` | Tailing commas where valid in ES5
+semi | `false` | No semicolons generally
+
 ## Why this repo?
 
 For reasons list below, I created this repo to do some practices for be familiar with Vue.js.
