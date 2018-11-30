@@ -27,6 +27,7 @@ export default {
   background-color: #333;
   width: 100%;
   flex-shrink: 0;
+  margin-bottom: 1.5rem;
 
   .nav-body {
     font-family: 'Courier New', Courier, monospace;
