@@ -55,10 +55,10 @@ export default {
 
 @keyframes text-gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 70%;
   }
   100% {
-    background-position: 100% 50%;
+    background-position: 10%;
   }
 }
 
@@ -86,19 +86,19 @@ export default {
         box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
         transform: translate3d(0, -2px, 0);
 
-        // .list-item-body {
-        //   background-image: linear-gradient(
-        //     141deg,
-        //     #333 0%,
-        //     #f5f5f5 5%,
-        //     #333 10%
-        //   );
-        //   background-size: 400%;
-        //   background-clip: text;
-        //   -webkit-background-clip: text;
-        //   color: transparent;
-        //   animation: text-gradient 0.9s linear 1 forwards;
-        // }
+        .list-item-body {
+          background-image: linear-gradient(
+            141deg,
+            #333 40%,
+            #f5f5f5 45%,
+            #333 50%
+          );
+          background-size: 400%;
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          animation: text-gradient 0.6s linear 1 forwards;
+        }
       }
 
       .list-item-timestamp {
@@ -119,13 +119,12 @@ export default {
       }
 
       .list-item-body {
-        display: flex;
-        flex-direction: column;
         padding: 0.5rem;
         flex-grow: 1;
 
         .list-item-title {
           font-size: 1.2rem;
+          display: inline;
           cursor: pointer;
           font-family: Georgia, 'Times New Roman', Times, serif;
         }
