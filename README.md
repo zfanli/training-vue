@@ -32,7 +32,7 @@ yarn run lint
 Key | Value | Description
 --- | --- | ---
 singleQuote | `true` | Use single quotes
-trailingComma | `"es5"` | Tailing commas where valid in ES5
+trailingComma | `es5` | Tailing commas where valid in ES5
 semi | `false` | No semicolons generally
 
 ## Why this repo?
