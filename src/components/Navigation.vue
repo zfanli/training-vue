@@ -9,8 +9,10 @@
 <script>
 export default {
   name: 'Navigation',
-  props: {
-    title: String,
+  data: function() {
+    return {
+      title: this.$store.state.title,
+    }
   },
 }
 </script>
@@ -37,6 +39,7 @@ export default {
       margin: 0 0.5rem;
       cursor: pointer;
       text-decoration: none;
+      text-transform: lowercase;
     }
   }
 }
