@@ -8,4 +8,5 @@ export default {
       title: `Post No.${i + 1}`,
     }
   }),
+  title: 'Richard Zg',
 }
