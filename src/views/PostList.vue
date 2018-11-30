@@ -2,7 +2,7 @@
   <div class="post-list">
     <div class="title">The list</div>
     <div class="list-body" v-if="hasPosts">
-      <div class="list-item" v-for="item in postList" :key="item.title">
+      <div class="list-item" v-for="item in list" :key="item.title">
         <div class="list-item-title">{{ item.title }}</div>
       </div>
     </div>
@@ -12,17 +12,14 @@
 <script>
 export default {
   name: 'PostList',
-  props: {
-    postList: {
-      type: Array,
-      default: function() {
-        return []
-      },
-    },
+  data: function() {
+    return {
+      list: this.$store.state.list,
+    }
   },
   computed: {
     hasPosts: function() {
-      return this.postList.length !== 0
+      return this.list.length !== 0
     },
   },
 }
@@ -52,6 +49,13 @@ export default {
       margin: 1rem 0.5rem;
       padding: 0.5rem;
       border-radius: 5px;
+      transition: all 0.2s linear;
+      box-shadow: none;
+
+      &:hover {
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, -2px, 0);
+      }
     }
   }
 }
