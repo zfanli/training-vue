@@ -1,5 +1,8 @@
 <template>
-  <div>{{post.lastUpdatedTime}}</div>
+  <div>
+    <div v-if="hasError">Something went wrong.</div>
+    <div v-else>{{post.lastUpdatedTime}}</div>
+  </div>
 </template>
 <script>
 export default {
@@ -13,6 +16,13 @@ export default {
         return String(p.lastUpdatedTime) === id
       })
       return post[0]
+    },
+    // for check url changed unexpectedly
+    hasError: function() {
+      if (!this.post) {
+        return true
+      }
+      return false
     },
   },
 }
