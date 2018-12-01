@@ -7,7 +7,7 @@
           <div>{{ getYear(item.lastUpdatedTime) }}</div>
         </div>
         <div class="list-item-body">
-          <div class="list-item-title" @click="clickHandler(item.title)">{{ item.title }}</div>
+          <div class="list-item-title" @click="clickHandler(item.lastUpdatedTime)">{{ item.title }}</div>
           <div class="list-item-tags">
             <span>#</span>
             <router-link v-for="tag in item.tags" :key="tag" :to="`/tags/${tag}`">{{tag}}</router-link>
