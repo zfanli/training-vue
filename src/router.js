@@ -18,7 +18,7 @@ export default new VueRouter({
       component: PostViewer,
       props: true,
       beforeEnter: function(to, from, next) {
-        const id = to.params.id
+        const id = Number(to.params.id)
         const listIds = store.getters.listIds
         if (listIds.indexOf(id) === -1) {
           next('/404')
