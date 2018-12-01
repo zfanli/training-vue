@@ -1,8 +1,8 @@
 <template>
-  <div class="page-footer">
+  <footer class="page-footer">
     <div class="footer-title">richard zg</div>
     <div class="footer-message">Powered by Vue.js</div>
-  </div>
+  </footer>
 </template>
 
 <script>
