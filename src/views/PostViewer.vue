@@ -12,10 +12,6 @@ export default {
       const post = this.$store.state.list.filter(function(p) {
         return String(p.lastUpdatedTime) === id
       })
-      if (post.length !== 1) {
-        this.$router.push('/404')
-        return
-      }
       return post[0]
     },
   },
