@@ -12,8 +12,9 @@ export default new VueRouter({
       component: PostList,
     },
     {
-      path: '/article/:title',
+      path: '/article/:id',
       component: PostViewer,
+      props: true
     }
   ],
 })
