@@ -53,17 +53,23 @@ const body = `
 
 `
 
+const secendsOfTheDay = 1000000000
+
+const list = range(number).map(i => {
+  return {
+    title: titles[i],
+    lastUpdatedTime:
+      Math.round((now() - 864000000 * (i + 1)) / secendsOfTheDay) *
+      secendsOfTheDay,
+    tags: `post${i % 2 == 0 ? ',test' : ''}${i % 3 == 0 ? ',end' : ''}`.split(
+      ','
+    ),
+    body: body,
+  }
+})
+
 // data for development
 export default {
-  list: range(number).map(i => {
-    return {
-      title: titles[i],
-      lastUpdatedTime: now() - 864000000 * (i + 1),
-      tags: `post${i % 2 == 0 ? ',test' : ''}${i % 3 == 0 ? ',end' : ''}`.split(
-        ','
-      ),
-      body: body,
-    }
-  }),
+  list: list,
   title: 'Richard Zg',
 }
