@@ -1,3 +1,5 @@
 import markdown from './markdown'
+import highlight from './highlight'
 
-export { markdown }
+// reorganize module
+export { markdown, highlight }
