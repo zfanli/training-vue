@@ -26,8 +26,9 @@ const body = `
   Test something like \`this\`, *this*, and **this**.
 
   \`\`\`js
-  const text = 'Of cause the code too.'
+  const text = 'Hellow World.'
   console.log(text)
+  throw new Error('the end')
   \`\`\`
 
   A fake todo list.
