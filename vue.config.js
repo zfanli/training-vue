@@ -4,4 +4,5 @@ module.exports = {
     port: 4000,
   },
   outputDir: 'docs',
+  baseUrl: './',
 }
