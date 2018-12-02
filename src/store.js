@@ -10,7 +10,7 @@ export default new Vuex.Store({
     title: data.title,
   },
   getters: {
-    listIds: state => state.list.map(o => o.lastUpdatedTime),
+    listIds: state => state.list.map(o => o.createdTimestamp),
   },
   mutations: {},
   actions: {},

@@ -3,11 +3,11 @@
     <div class="list-body" v-if="hasPosts">
       <div class="list-item" v-for="item in list" :key="item.title">
         <div class="list-item-timestamp">
-          <div>{{ getDate(item.lastUpdatedTime) }}</div>
-          <div>{{ getYear(item.lastUpdatedTime) }}</div>
+          <div>{{ getDate(item.createdTimestamp) }}</div>
+          <div>{{ getYear(item.createdTimestamp) }}</div>
         </div>
         <div class="list-item-body">
-          <div class="list-item-title" @click="clickHandler(item.lastUpdatedTime)">{{ item.title }}</div>
+          <div class="list-item-title" @click="clickHandler(item.createdTimestamp)">{{ item.title }}</div>
           <div class="list-item-tags">
             <span>#</span>
             <router-link v-for="tag in item.tags" :key="tag" :to="`/tags/${tag}`">{{tag}}</router-link>

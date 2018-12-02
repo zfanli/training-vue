@@ -59,7 +59,7 @@ const baseTimestamp = 1543758085849
 const list = range(number).map(i => {
   return {
     title: titles[i],
-    lastUpdatedTime: baseTimestamp - 864000000 * (i + 1),
+    createdTimestamp: baseTimestamp - 864000000 * (i + 1),
     tags: `post${i % 2 == 0 ? ',test' : ''}${i % 3 == 0 ? ',end' : ''}`.split(
       ','
     ),
