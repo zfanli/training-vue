@@ -2,7 +2,7 @@
   <div class="body post-viewer">
     <div v-if="hasError" class="error">Something went wrong.</div>
     <div class="post" v-else>
-      <div class="markdown-body">
+      <div class="md-body">
         <div class="post-title">{{ post.title }}</div>
         <div class="post-body" v-html="renderMarkdown(post.body)"/>
       </div>
