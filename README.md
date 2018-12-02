@@ -56,10 +56,18 @@ It'll be a pretty lot of works.
 
 Let's begin from the simplest step, just a list and a article viewer.
 
+## Todo
+
+- [x] homepage for show post list
+- [x] article page, parse and display markdown posts
+- [ ] article comment support, with gitalk
+- [ ] theme settings, for change color themes
+
 ## Dependencies
 
-- vue
-- vue-router
-- vuex
-- markdown-it
-- prismjs
+- `vue` - base
+- `vue-router` - router
+- `vuex` - state management
+- `markdown-it` - parse markdown into html
+- `prismjs` - syntax highlight
+- `github-markdown-css` - styling like github
