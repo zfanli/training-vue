@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/common.scss';
+@import '../styles/constants.scss';
 
 @keyframes text-gradient {
   0% {
