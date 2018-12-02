@@ -1,15 +1,18 @@
 <template>
   <div class="body post-viewer">
     <div v-if="hasError" class="error">Something went wrong.</div>
-    <div class="post markdown-body" v-else>
-      <div class="post-title">{{ post.title }}</div>
-      <div class="post-body" v-html="renderMarkdown(post.body)"/>
+    <div class="post" v-else>
+      <div class="markdown-body">
+        <div class="post-title">{{ post.title }}</div>
+        <div class="post-body" v-html="renderMarkdown(post.body)"/>
+      </div>
+      <div id="gitalk-container"/>
     </div>
   </div>
 </template>
 
 <script>
-import { markdown, highlight } from '../utils'
+import { markdown, highlight, gitalk } from '../utils'
 
 export default {
   props: {
@@ -36,9 +39,11 @@ export default {
   },
   updated: function() {
     highlight()
+    gitalk.render('gitalk-container')
   },
   mounted: function() {
     highlight()
+    gitalk.render('gitalk-container')
   },
 }
 </script>
