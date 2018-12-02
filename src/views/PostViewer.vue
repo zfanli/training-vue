@@ -22,7 +22,7 @@ export default {
     post: function() {
       const id = this.id
       const post = this.$store.state.list.filter(function(p) {
-        return String(p.lastUpdatedTime) === id
+        return String(p.createdTimestamp) === id
       })
       return post[0]
     },
@@ -39,11 +39,11 @@ export default {
   },
   updated: function() {
     highlight()
-    gitalk.render('gitalk-container')
+    gitalk().render('gitalk-container')
   },
   mounted: function() {
     highlight()
-    gitalk.render('gitalk-container')
+    gitalk().render('gitalk-container')
   },
 }
 </script>
