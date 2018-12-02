@@ -1,26 +1,31 @@
 # vue-training
 
 ## Project setup
+
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 yarn run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 yarn run build
 ```
 
 ### Run your tests
+
 ```
 yarn run test
 ```
 
 ### Lints and fixes files
+
 ```
 yarn run lint
 ```
@@ -29,11 +34,11 @@ yarn run lint
 
 > Formatter: prettier. The default formatter integrated by Vetur, a plug-in of VSCode.
 
-Key | Value | Description
---- | --- | ---
-singleQuote | `true` | Use single quotes
-trailingComma | `es5` | Tailing commas where valid in ES5
-semi | `false` | No semicolons generally
+| Key           | Value   | Description                       |
+| ------------- | ------- | --------------------------------- |
+| singleQuote   | `true`  | Use single quotes                 |
+| trailingComma | `es5`   | Tailing commas where valid in ES5 |
+| semi          | `false` | No semicolons generally           |
 
 ## Why this repo?
 
@@ -50,3 +55,11 @@ As usual, build a blog site with Vue.js.
 It'll be a pretty lot of works.
 
 Let's begin from the simplest step, just a list and a article viewer.
+
+## Dependencies
+
+- vue
+- vue-router
+- vuex
+- markdown-it
+- prismjs
