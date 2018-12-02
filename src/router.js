@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import store from './store'
 import PageNotFound from './views/PageNotFound.vue'
 import PostList from './views/PostList.vue'
-import PostViewer from './views/PostViewer.vue'
 
 Vue.use(VueRouter)
 
@@ -15,9 +14,10 @@ export default new VueRouter({
     },
     {
       path: '/article/:id',
-      component: PostViewer,
+      component: () =>
+        import(/* webpackChunkName: "post-viewer" */ './views/PostViewer.vue'),
       props: true,
-      beforeEnter: function(to, from, next) {
+      beforeEnter(to, from, next) {
         const id = Number(to.params.id)
         const listIds = store.getters.listIds
         if (listIds.indexOf(id) === -1) {
@@ -37,4 +37,11 @@ export default new VueRouter({
       redirect: '/404',
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
 })
