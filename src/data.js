@@ -1,4 +1,4 @@
-import { range, now } from 'lodash'
+import { range } from 'lodash'
 
 // for generate title
 // up to 95 titles
@@ -54,14 +54,12 @@ const body = `
 
 `
 
-const secendsOfTheDay = 1000000000
+const baseTimestamp = 1543758085849
 
 const list = range(number).map(i => {
   return {
     title: titles[i],
-    lastUpdatedTime:
-      Math.round((now() - 864000000 * (i + 1)) / secendsOfTheDay) *
-      secendsOfTheDay,
+    lastUpdatedTime: baseTimestamp - 864000000 * (i + 1),
     tags: `post${i % 2 == 0 ? ',test' : ''}${i % 3 == 0 ? ',end' : ''}`.split(
       ','
     ),
