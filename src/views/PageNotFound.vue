@@ -1,5 +1,5 @@
 <template>
-  <div class="page-not-found">
+  <div class="page-not-found body">
     <div>Page Not Found.</div>
   </div>
 </template>
@@ -8,5 +8,6 @@
 .page-not-found {
   flex-grow: 1;
   flex-shrink: 0;
+  text-align: center;
 }
 </style>

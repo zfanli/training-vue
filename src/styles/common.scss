@@ -1,2 +1,55 @@
-// for limit the max width of content and navigation
-$max-screen-width: 800px;
+@import './constants.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+// For make code blocks display in same width with the post box
+// If change on this attribute is necessary,
+// the width of post viewer should be changed together
+.code-toolbar {
+  margin: 0 -45px;
+
+  // give a small margin on mobile screen
+  @media (max-width: 700px) {
+    margin: 0 -15px;
+  }
+
+  // align the code block with other paragraphs
+  pre {
+    padding: 1rem 45px !important;
+
+    @media (max-width: 700px) {
+      padding: 1rem 15px !important;
+    }
+  }
+}
+
+// Style the main content area for common use.
+// Make all contents have same width and padding.
+// Each component should overwrite padding-top or bottom if necessary.
+.body {
+  padding: 45px;
+  margin: 0 auto;
+  max-width: $max-width;
+
+  @media (max-width: 700px) {
+    padding: 15px;
+  }
+}
+
+// Just for make navigation bar has the same width and padding width contents.
+.nav-body {
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: 0 45px;
+
+  @media (max-width: 700px) {
+    padding: 0 15px;
+  }
+}

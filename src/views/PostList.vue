@@ -1,5 +1,5 @@
 <template>
-  <div class="post-list">
+  <div class="post-list body">
     <div class="list-body" v-if="hasPosts">
       <div class="list-item" v-for="item in list" :key="item.title">
         <div class="list-item-timestamp">
@@ -51,8 +51,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/constants.scss';
-
 @keyframes text-gradient {
   0% {
     background-position: 70%;
@@ -66,16 +64,12 @@ export default {
   background-color: transparent;
   flex-shrink: 0;
   flex-grow: 1;
+  padding-top: 1rem !important;
 
   .list-body {
-    @media (min-width: $max-screen-width) {
-      width: 700px;
-      margin: 0 auto;
-    }
-
     .list-item {
       background-color: #fff;
-      margin: 1rem 0.5rem;
+      margin: 1rem 0;
       border-radius: 5px;
       transition: all 0.2s linear;
       box-shadow: none;

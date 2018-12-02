@@ -20,10 +20,8 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  margin: 0;
-  background-color: #f5f5f5;
-}
+@import './styles/common.scss';
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
