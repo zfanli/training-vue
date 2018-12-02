@@ -61,6 +61,8 @@ Let's begin from the simplest step, just a list and a article viewer.
 - [x] homepage for show post list
 - [x] article page, parse and display markdown posts
 - [ ] article comment support, with gitalk
+- [ ] homepage pagination
+- [ ] tags page
 - [ ] theme settings, for change color themes
 
 ## Dependencies
