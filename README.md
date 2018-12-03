@@ -58,12 +58,28 @@ Let's begin from the simplest step, just a list and a article viewer.
 
 ## Todo
 
-- [x] homepage for show post list
-- [x] article page, parse and display markdown posts
-- [ ] article comment support, with gitalk
-- [ ] homepage pagination
+Just a list for what I wanna implement.
+
+Notice that do not mean task listed below must be implemented in the future. Things could be changed at anytime.
+
+- [ ] homepage for show post list
+  - [x] base implement for show the post list
+  - [ ] pagination
+  - [ ] searching
+- [ ] article page, parse and display markdown posts
+  - [x] base implement for display and parse markdown
+  - [x] comment support with gitalk
+  - [ ] tags and timestamp or other accessories
+  - [ ] pagination, navigate to next/previous page
 - [ ] tags page
+  - [ ] base implement for show a list of tags
+  - [ ] tag filter
 - [ ] theme settings, for change color themes
+  - [ ] another transition for mouse hover on the post list, current one is not looks so good
+  - [ ] dark colors
+  - [ ] font settings
+  - [ ] change markdown code block styles on the fly
+- [ ] i18n if possible
 
 ## Dependencies
 
@@ -71,5 +87,6 @@ Let's begin from the simplest step, just a list and a article viewer.
 - `vue-router` - router
 - `vuex` - state management
 - `markdown-it` - parse markdown into html
-- `prismjs` - syntax highlight
+- `markdown-it-task-list` - for a github like task list syntax of markdown
+- `prismjs` - syntax highlight, current one is prism-tomorrow
 - `github-markdown-css` - styling like github
