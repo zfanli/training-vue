@@ -15,21 +15,19 @@
         </div>
       </div>
     </div>
+    <div class="post-list-load-more" v-if="hasMorePosts">Load More</div>
+    <div class="post-list-end" v-else>You have reached the end.</div>
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
+
 export default {
   name: 'PostList',
-  data: function() {
-    return {
-      list: this.$store.state.list,
-    }
-  },
   computed: {
-    hasPosts: function() {
-      return this.list.length !== 0
-    },
+    ...mapState(['list']),
+    ...mapGetters(['hasPosts', 'hasMorePosts']),
   },
   methods: {
     getDate: function(timestamp) {
@@ -143,6 +141,15 @@ export default {
         }
       }
     }
+  }
+
+  .post-list-load-more,
+  .post-list-end {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 85%;
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
   }
 }
 </style>
