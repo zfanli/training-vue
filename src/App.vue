@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <navigation class="header"/>
+    <navigation/>
     <router-view/>
     <page-footer/>
   </div>
