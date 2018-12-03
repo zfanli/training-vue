@@ -63,7 +63,7 @@ export default {
   .post {
     .post-title {
       font-size: 2.5rem;
-      font-weight: bold;
+      font-weight: 900;
       padding-bottom: 1rem;
     }
   }
