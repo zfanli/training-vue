@@ -4,7 +4,7 @@
     <div class="post" v-else>
       <div class="md-body">
         <div class="post-title">{{ post.title }}</div>
-        <div class="post-body" v-html="renderMarkdown(post.body)"/>
+        <div class="post-body" v-html="article"/>
       </div>
       <div id="gitalk-container"/>
     </div>
@@ -13,37 +13,53 @@
 
 <script>
 import { markdown, highlight, gitalk } from '../utils'
+import { mapActions } from 'vuex'
+import { ACTION_FETCH_ARTICLE } from '../actions'
 
 export default {
   props: {
     id: String,
   },
   computed: {
-    post: function() {
+    post() {
       const id = this.id
-      const post = this.$store.state.list.filter(function(p) {
+      const post = this.$store.getters.listArray.filter(function(p) {
         return String(p.createdTimestamp) === id
       })
       return post[0]
     },
     // for check url changed unexpectedly
-    hasError: function() {
+    hasError() {
       if (!this.post) {
         return true
       }
       return false
     },
+    article() {
+      const article = this.post.article
+      return article ? this.renderMarkdown(article) : 'Loading'
+    },
   },
   methods: {
     renderMarkdown: markdown,
+    ...mapActions([ACTION_FETCH_ARTICLE]),
   },
-  updated: function() {
-    highlight()
-    gitalk().render('gitalk-container')
-  },
+  // updated: function() {
+  //   highlight()
+  //   gitalk().render('gitalk-container')
+  // },
   mounted: function() {
     highlight()
     gitalk().render('gitalk-container')
+  },
+  created() {
+    // check if article exists then do nothing
+    if (this.post.article) return
+    // If article does not exist, perform fetch action
+    // Get correct article before html is generated
+    const refName = this.post.refName
+    const id = this.post.createdTimestamp
+    this[ACTION_FETCH_ARTICLE]({ name: refName, id })
   },
 }
 </script>

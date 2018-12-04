@@ -1,7 +1,7 @@
 <template>
   <div class="post-list body">
     <div class="list-body" v-if="hasPosts">
-      <div class="list-item" v-for="item in list" :key="item.title">
+      <div class="list-item" v-for="item in listArray" :key="item.title">
         <div class="list-item-timestamp">
           <div>{{ getDate(item.createdTimestamp) }}</div>
           <div>{{ getYear(item.createdTimestamp) }}</div>
@@ -21,13 +21,12 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'PostList',
   computed: {
-    ...mapState(['list']),
-    ...mapGetters(['hasPosts', 'hasMorePosts']),
+    ...mapGetters(['listArray', 'listIds', 'hasPosts', 'hasMorePosts']),
   },
   methods: {
     getDate: function(timestamp) {
