@@ -18,7 +18,7 @@ export default new VueRouter({
         import(/* webpackChunkName: "post-viewer" */ './views/PostViewer.vue'),
       props: true,
       beforeEnter(to, from, next) {
-        const id = Number(to.params.id)
+        const id = to.params.id
         const listIds = store.getters.listIds
         if (listIds.indexOf(id) === -1) {
           next('/404')
