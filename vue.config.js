@@ -5,4 +5,12 @@ module.exports = {
   },
   outputDir: 'docs',
   baseUrl: './',
+  chainWebpack: config => {
+    config.module
+      .rule('md-raw')
+      .test(/\.md$/)
+      .use('raw-loader')
+      .loader('raw-loader')
+      .end()
+  },
 }
