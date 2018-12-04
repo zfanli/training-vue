@@ -1,37 +1,76 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import data from './data'
-import { ACTION_FETCH_ARTICLE, SET_ARTICLE } from './actions'
+import {
+  ACTION_FETCH_ARTICLE,
+  MUTATION_SET_ARTICLE,
+  MUTATION_SHOW_MORE_POSTS,
+} from './actions'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    /**
+     * An overview of all posts.
+     */
     list: data,
+    /**
+     * Title shows on the navigation.
+     */
     title: 'richard zg',
+    /**
+     * Display size on homepage.
+     */
     size: 15,
   },
   getters: {
+    /**
+     * All post ids. Order by time desc.
+     * @param {*} state
+     */
     listIds(state) {
-      return Object.keys(state.list)
+      return Object.keys(state.list).sort((x, y) => x > y)
     },
+    /**
+     * Posts to display on homepage, limit by `state.size`.
+     * @param {*} state
+     * @param {*} getters
+     */
     listArray(state, getters) {
-      return getters.listIds.map(id => state.list[id])
+      return getters.listIds.slice(0, state.size).map(id => state.list[id])
     },
+    /**
+     * The true length of the list(array) that contains all posts.
+     * @param {*} getters
+     */
     length(_, getters) {
-      return getters.listArray ? getters.listArray.length : 0
+      return getters.listIds ? getters.listIds.length : 0
     },
+    /**
+     * A flag shows there has posts can be display on the homepage.
+     * @param {*} getters
+     */
     hasPosts(_, getters) {
       return getters.length > 0
     },
+    /**
+     * A flag shows there are more posts haven't be displayed.
+     * @param {*} state
+     * @param {*} getters
+     */
     hasMorePosts(state, getters) {
       return state.size < getters.length
     },
   },
   mutations: {
     // Set new article
-    [SET_ARTICLE](state, { article, id }) {
+    [MUTATION_SET_ARTICLE](state, { article, id }) {
       state.list[id].article = article
+    },
+    // Increase `state.size` by given number
+    [MUTATION_SHOW_MORE_POSTS](state, offset) {
+      state.size += offset
     },
   },
   actions: {
@@ -45,7 +84,7 @@ export default new Vuex.Store({
       // For example, the path defined below(`./_posts/${name}.md`)
       // will make webpack to pack all files that match `./_posts/*.md`.
       import(/* webpackMode: "lazy" */ `./_posts/${name}.md`).then(module =>
-        commit(SET_ARTICLE, { article: module.default, id })
+        commit(MUTATION_SET_ARTICLE, { article: module.default, id })
       )
     },
   },

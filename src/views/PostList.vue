@@ -7,7 +7,10 @@
           <div>{{ getYear(item.createdTimestamp) }}</div>
         </div>
         <div class="list-item-body">
-          <div class="list-item-title" @click="clickHandler(item.createdTimestamp)">{{ item.title }}</div>
+          <div
+            class="list-item-title"
+            @click="handleLinkClick(item.createdTimestamp)"
+          >{{ item.title }}</div>
           <div class="list-item-tags">
             <span>#</span>
             <router-link v-for="tag in item.tags" :key="tag" :to="`/tags/${tag}`">{{tag}}</router-link>
@@ -15,13 +18,16 @@
         </div>
       </div>
     </div>
-    <div class="post-list-load-more" v-if="hasMorePosts">Load More</div>
+    <div class="post-list-load-more" v-if="hasMorePosts">
+      <button class="post-list-load-more-button" @click="handleLoadMoreButtonClick">Load More</button>
+    </div>
     <div class="post-list-end" v-else>You have reached the end.</div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
+import { MUTATION_SHOW_MORE_POSTS } from '../actions'
 
 export default {
   name: 'PostList',
@@ -29,20 +35,23 @@ export default {
     ...mapGetters(['listArray', 'listIds', 'hasPosts', 'hasMorePosts']),
   },
   methods: {
-    getDate: function(timestamp) {
+    getDate(timestamp) {
       if (typeof timestamp !== 'number') return
       const date = new Date(timestamp)
       const day = date.getDate().toString()
       const month = (date.getMonth() + 1).toString()
       return `${day.padStart(2, '0')}/${month.padStart(2, '0')}`
     },
-    getYear: function(timestamp) {
+    getYear(timestamp) {
       if (typeof timestamp !== 'number') return
       return new Date(timestamp).getFullYear()
     },
-    clickHandler: function(to) {
+    handleLinkClick(to) {
       this.$router.push(`/article/${to}`)
     },
+    ...mapMutations({
+      handleLoadMoreButtonClick: MUTATION_SHOW_MORE_POSTS,
+    }),
   },
 }
 </script>
@@ -149,6 +158,19 @@ export default {
     font-size: 85%;
     color: #333;
     font-family: 'Courier New', Courier, monospace;
+  }
+
+  .post-list-load-more-button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    background-color: transparent;
+    transition: color 0.2s linear;
+    outline: none;
+
+    &:hover {
+      color: #999;
+    }
   }
 }
 </style>
