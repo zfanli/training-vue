@@ -64,13 +64,13 @@ Notice that do not mean task listed below must be implemented in the future. Thi
 
 - [ ] homepage for show post list
   - [x] base implement for show the post list
-  - [ ] pagination
+  - [x] pagination, just a load more button
   - [ ] searching
 - [ ] article page, parse and display markdown posts
   - [x] base implement for display and parse markdown
   - [x] comment support with gitalk
-  - [ ] tags and timestamp or other accessories
   - [ ] pagination, navigate to next/previous page
+  - [ ] tags and timestamp or other accessories
 - [ ] tags page
   - [ ] base implement for show a list of tags
   - [ ] tag filter
