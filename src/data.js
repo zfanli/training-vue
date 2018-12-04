@@ -8,67 +8,27 @@ const titles = placeholder.split('.')
 // DON'T OUTNUMBER 95
 const number = 30
 // Common use
-const body = `
-  # This is a Test Title
+const name = i => (i % 2 === 0 ? 'sample' : 'testDynamicImport')
 
-  And this is a test sentence.
-
-  ## For something here as a 2nd titile
-
-  More text here for test.
-
-  Sodales fringilla hymenaeos pellentesque, sagittis est cubilia porttitor eleifend conubia quam inceptos gravida.
-
-  Commodo torquent praesent justo neque vehicula felis, dui turpis nunc leo ut Tellus curabitur porttitor Etiam.
-
-  Aliquam dapibus feugiat vivamus habitasse vestibulum consectetuer id.
-
-  Test something like \`this\`, *this*, and **this**.
-
-  \`\`\`js
-  const text = 'Hellow World.'
-  console.log(text)
-  throw new Error('the end')
-  \`\`\`
-
-  A fake todo list.
-
-  - [x] reading
-  - [x] eating
-  - [ ] playing
-
-  Even a table.
-
-  Table | Just | For | Test
-  ----- | ---- | --- | ----
-  1 | 2 | 3 | 4
-  A | B | C | D
-  one | two | three | four
-
-  Some quotes.
-
-  > Life is just hight low low low low and low.
-  > By me.
-
-  Okay, the end.
-
-`
+// const body = () => import(`./_posts/sample.md`).then(m => m.default)
 
 const baseTimestamp = 1543758085849
 
-const list = range(number).map(i => {
-  return {
+// as a object
+const result = {}
+
+range(number).map(i => {
+  const id = baseTimestamp - 864000000 * (i + 1)
+  result[id] = {
     title: titles[i],
-    createdTimestamp: baseTimestamp - 864000000 * (i + 1),
+    createdTimestamp: id,
     tags: `post${i % 2 == 0 ? ',test' : ''}${i % 3 == 0 ? ',end' : ''}`.split(
       ','
     ),
-    body: body,
+    refName: name(i),
+    article: '',
   }
 })
 
 // data for development
-export default {
-  list: list,
-  title: 'Richard Zg',
-}
+export default result
