@@ -4,7 +4,12 @@
       <router-link class="logo" to="/">{{ title }}</router-link>
       <div class="nav-search">
         <transition-group name="fade" mode="out-in">
-          <div v-if="!search" @click="search = !search" key="label">SEARCH</div>
+          <div
+            class="search-label"
+            v-if="!search"
+            @click="search = !search"
+            key="search-label"
+          >search</div>
           <input
             class="search-box"
             type="text"
@@ -12,7 +17,7 @@
             v-model="input"
             placeholder="Search"
             @blur="search = !search"
-            key="input"
+            key="search-input"
           >
         </transition-group>
       </div>
@@ -56,25 +61,23 @@ export default {
 
     .nav-search {
       margin-left: auto;
+      font-family: inherit;
 
+      .search-label {
+        color: white;
+      }
       .search-box {
         border: none;
-        background-color: #333;
         transition: all 0.2s linear;
         padding: 0.5rem;
         outline: none;
         border-radius: 5px;
-        color: white;
-        font-family: inherit;
         text-align: center;
+        background-color: white;
+        color: #333;
 
         &::placeholder {
           color: inherit;
-        }
-
-        &:focus {
-          background-color: white;
-          color: #333;
         }
       }
     }
