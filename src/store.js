@@ -23,6 +23,10 @@ export default new Vuex.Store({
      * Display size on homepage.
      */
     size: 15,
+    /**
+     * Load size for every times load more button is clicked.
+     */
+    loadSize: 10,
   },
   getters: {
     /**
@@ -69,8 +73,8 @@ export default new Vuex.Store({
       state.list[id].article = article
     },
     // Increase `state.size` by given number
-    [MUTATION_SHOW_MORE_POSTS](state, offset) {
-      state.size += offset
+    [MUTATION_SHOW_MORE_POSTS](state) {
+      state.size += state.loadSize
     },
   },
   actions: {
