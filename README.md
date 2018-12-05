@@ -71,6 +71,7 @@ Notice that do not mean task listed below must be implemented in the future. Thi
   - [x] comment support with gitalk
   - [x] pagination, navigate to next/previous page
   - [ ] tags and timestamp or other accessories
+  - [ ] show a placeholder when loading is not finished (current is appear suddenly when loading is finished)
 - [ ] tags page
   - [ ] base implement for show a list of tags
   - [ ] tag filter
