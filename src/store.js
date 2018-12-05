@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import data from './data'
 import {
-  ACTION_FETCH_ARTICLE,
-  MUTATION_SET_ARTICLE,
+  ACTION_FETCH_POST,
+  MUTATION_SET_POST,
   MUTATION_SHOW_MORE_POSTS,
 } from './actions'
 
@@ -68,9 +68,9 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    // Set new article
-    [MUTATION_SET_ARTICLE](state, { article, id }) {
-      state.list[id].article = article
+    // Set new post body
+    [MUTATION_SET_POST](state, { body, id }) {
+      state.list[id].body = body
     },
     // Increase `state.size` by given number
     [MUTATION_SHOW_MORE_POSTS](state) {
@@ -81,14 +81,14 @@ export default new Vuex.Store({
     // Perform a async action for dynamic import a md file.
     // The name is needed, point to the real file name
     // The id is for identify the post
-    [ACTION_FETCH_ARTICLE]({ commit }, { name, id }) {
-      // Dynamic import markdown file and set to state.article
+    [ACTION_FETCH_POST]({ commit }, { name, id }) {
+      // Dynamic import markdown file and set to state.body
       // Notice: MUST minify variable control of import path,
       // because webpack will pack all files that could be imported.
       // For example, the path defined below(`./_posts/${name}.md`)
       // will make webpack to pack all files that match `./_posts/*.md`.
       import(/* webpackMode: "lazy" */ `./_posts/${name}.md`).then(module =>
-        commit(MUTATION_SET_ARTICLE, { article: module.default, id })
+        commit(MUTATION_SET_POST, { body: module.default, id })
       )
     },
   },

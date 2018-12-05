@@ -54,7 +54,7 @@ As usual, build a blog site with Vue.js.
 
 It'll be a pretty lot of works.
 
-Let's begin from the simplest step, just a list and a article viewer.
+Let's begin from the simplest step, just a list and a post viewer.
 
 ## Todo
 
@@ -66,7 +66,7 @@ Notice that do not mean task listed below must be implemented in the future. Thi
   - [x] base implement for show the post list
   - [x] pagination, just a load more button
   - [ ] searching
-- [ ] article page, parse and display markdown posts
+- [ ] post viewer page, parse and display markdown posts
   - [x] base implement for display and parse markdown
   - [x] comment support with gitalk
   - [ ] pagination, navigate to next/previous page

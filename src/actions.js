@@ -1,12 +1,12 @@
 /**
- * Action: fetch the article by given name and set it to post object by id.
+ * Action: fetch the post body by given name and set it to post object by id.
  */
-export const ACTION_FETCH_ARTICLE = 'ACTION_FETCH_ARTICLE'
+export const ACTION_FETCH_POST = 'ACTION_FETCH_POST'
 
 /**
- * Mutation: update article; set `payload.article` to `state.list[id].article`.
+ * Mutation: update post body; set `payload.body` to `state.list[id].body`.
  */
-export const MUTATION_SET_ARTICLE = 'MUTATION_SET_ARTICLE'
+export const MUTATION_SET_POST = 'MUTATION_SET_POST'
 
 /**
  * Mutation: increase the `state.size` to show more posts.

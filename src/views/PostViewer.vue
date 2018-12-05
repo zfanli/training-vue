@@ -4,7 +4,7 @@
     <div class="post" v-else>
       <div class="md-body">
         <div class="post-title">{{ post.title }}</div>
-        <div class="post-body" v-html="article"/>
+        <div class="post-body" v-html="body"/>
       </div>
       <div class="nav-buttons">
         <div class="previous nav-button">
@@ -30,7 +30,7 @@
 <script>
 import { markdown, highlight, gitalk } from '../utils'
 import { mapActions } from 'vuex'
-import { ACTION_FETCH_ARTICLE } from '../actions'
+import { ACTION_FETCH_POST } from '../actions'
 
 export default {
   props: {
@@ -60,11 +60,11 @@ export default {
       return false
     },
     /**
-     * Parse article into html.
+     * Parse post body into html.
      */
-    article() {
-      const article = this.post.article
-      return article ? this.renderMarkdown(article) : 'Loading'
+    body() {
+      const body = this.post.body
+      return body ? this.renderMarkdown(body) : 'Loading'
     },
     /**
      * The previous post, for navigation.
@@ -84,7 +84,7 @@ export default {
      * Handler for navation button onclick.
      */
     handleNavButtonClick(to) {
-      this.$router.push(`/article/${to}`)
+      this.$router.push(`/posts/${to}`)
     },
     /**
      * Get informations of previous or next page.
@@ -112,17 +112,21 @@ export default {
      */
     renderMarkdown: markdown,
     ...mapActions({
-      fetchArticle: ACTION_FETCH_ARTICLE,
+      fetchPost: ACTION_FETCH_POST,
     }),
   },
   /**
    * Rerender highlight and gitalk when the page updated.
-   * This exists because when artilce is initial fetched,
-   * the highlight won't be rerendered anymore.
-   * This function is for rerendering at that occasions.
    */
   updated() {
+    // This exists because when artilce is initial fetched,
+    // the highlight won't be rerendered anymore.
+    // This function is for rerendering at that occasions.
     highlight()
+    // fetch post body when it does not exist
+    if (!this.post.body) {
+      this.fetchPost({ name: refName, id })
+    }
     gitalk().render('gitalk-container')
   },
   /**
@@ -133,16 +137,16 @@ export default {
     gitalk().render('gitalk-container')
   },
   /**
-   * Fetch article if necessary when component is created but not mounted.
+   * Fetch post if necessary when component is created but not mounted.
    */
   created() {
-    // check if article exists then do nothing
-    if (this.post.article) return
-    // If article does not exist, perform fetch action
-    // Get correct article before html is generated
+    // check if post body exists
+    if (this.post.body) return
+    // If post does not exist, perform fetch action
+    // Get correct post body before html is generated
     const refName = this.post.refName
     const id = this.post.createdTimestamp
-    this.fetchArticle({ name: refName, id })
+    this.fetchPost({ name: refName, id })
   },
 }
 </script>

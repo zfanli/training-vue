@@ -26,7 +26,7 @@ range(number).map(i => {
       ','
     ),
     refName: name(i),
-    article: '',
+    body: '',
   }
 })
 

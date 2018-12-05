@@ -47,7 +47,7 @@ export default {
       return new Date(timestamp).getFullYear()
     },
     handleLinkClick(to) {
-      this.$router.push(`/article/${to}`)
+      this.$router.push(`/posts/${to}`)
     },
     ...mapMutations({
       handleLoadMoreButtonClick: MUTATION_SHOW_MORE_POSTS,

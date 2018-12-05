@@ -13,7 +13,7 @@ export default new VueRouter({
       component: PostList,
     },
     {
-      path: '/article/:id',
+      path: '/posts/:id',
       component: () =>
         import(/* webpackChunkName: "post-viewer" */ './views/PostViewer.vue'),
       props: true,
