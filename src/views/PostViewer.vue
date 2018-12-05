@@ -80,13 +80,9 @@ export default {
   },
   watch: {
     /**
-     * Rerender highlight and gitalk when route changed.
+     * Do something when route changed.
      */
     $route() {
-      // This exists because when artilce is initial fetched,
-      // the highlight won't be rerendered anymore.
-      // This function is for rerendering at that occasions.
-      highlight()
       // fetch post body when it does not exist
       if (!this.post.body) {
         const refName = this.post.refName
@@ -141,6 +137,12 @@ export default {
   mounted() {
     highlight()
     gitalk().render('gitalk-container')
+  },
+  /**
+   * Highlight need be rerendered when DOM is updated.
+   */
+  updated() {
+    highlight()
   },
   /**
    * Fetch post if necessary when component is created but not mounted.
