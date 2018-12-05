@@ -13,6 +13,7 @@
             v-if="previous"
             @click="handleNavButtonClick(previous.id)"
           >{{ previous.title }}</button>
+          <span class="nav-button-alert" v-else>START</span>
         </div>
         <div class="next nav-button">
           <button
@@ -20,6 +21,7 @@
             v-if="next"
             @click="handleNavButtonClick(next.id)"
           >{{ next.title }}</button>
+          <span class="nav-button-alert" v-else>END</span>
         </div>
       </div>
       <div id="gitalk-container"/>
@@ -45,10 +47,7 @@ export default {
      */
     post() {
       const id = this.id
-      const post = this.$store.getters.listArray.filter(function(p) {
-        return String(p.createdTimestamp) === id
-      })
-      return post[0]
+      return this.$store.state.list[id]
     },
     /**
      * Check is the post has been fetched successfully
@@ -125,9 +124,14 @@ export default {
     highlight()
     // fetch post body when it does not exist
     if (!this.post.body) {
+      const refName = this.post.refName
+      const id = this.post.createdTimestamp
       this.fetchPost({ name: refName, id })
     }
-    gitalk().render('gitalk-container')
+    // reload comment by clear comments container
+    const id = 'gitalk-container'
+    document.getElementById(id).innerHTML = ''
+    gitalk().render(id)
   },
   /**
    * Initial rendering.
@@ -172,6 +176,8 @@ export default {
 
     .nav-buttons {
       display: flex;
+      border-top: 1px solid #eaecef;
+      margin-top: 1rem;
 
       .nav-button {
         max-width: 50%;
@@ -203,6 +209,12 @@ export default {
 
         &.next {
           justify-content: flex-end;
+        }
+
+        .nav-button-alert {
+          padding: 1rem 0;
+          font-size: 1rem;
+          color: #999;
         }
       }
     }
