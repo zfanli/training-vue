@@ -78,6 +78,27 @@ export default {
       return this.getPreviousOrNextPages(1)
     },
   },
+  watch: {
+    /**
+     * Rerender highlight and gitalk when route changed.
+     */
+    $route() {
+      // This exists because when artilce is initial fetched,
+      // the highlight won't be rerendered anymore.
+      // This function is for rerendering at that occasions.
+      highlight()
+      // fetch post body when it does not exist
+      if (!this.post.body) {
+        const refName = this.post.refName
+        const id = this.post.createdTimestamp
+        this.fetchPost({ name: refName, id })
+      }
+      // reload comment by clear comments container
+      const id = 'gitalk-container'
+      document.getElementById(id).innerHTML = ''
+      gitalk().render(id)
+    },
+  },
   methods: {
     /**
      * Handler for navation button onclick.
@@ -115,25 +136,6 @@ export default {
     }),
   },
   /**
-   * Rerender highlight and gitalk when the page updated.
-   */
-  updated() {
-    // This exists because when artilce is initial fetched,
-    // the highlight won't be rerendered anymore.
-    // This function is for rerendering at that occasions.
-    highlight()
-    // fetch post body when it does not exist
-    if (!this.post.body) {
-      const refName = this.post.refName
-      const id = this.post.createdTimestamp
-      this.fetchPost({ name: refName, id })
-    }
-    // reload comment by clear comments container
-    const id = 'gitalk-container'
-    document.getElementById(id).innerHTML = ''
-    gitalk().render(id)
-  },
-  /**
    * Initial rendering.
    */
   mounted() {
@@ -162,6 +164,7 @@ export default {
 .post-viewer {
   background-color: white;
   margin-top: 2rem;
+  flex-grow: 1;
 
   @media (max-width: 700px) {
     margin-top: 0;
