@@ -69,7 +69,7 @@ Notice that do not mean task listed below must be implemented in the future. Thi
 - [ ] post viewer page, parse and display markdown posts
   - [x] base implement for display and parse markdown
   - [x] comment support with gitalk
-  - [ ] pagination, navigate to next/previous page
+  - [x] pagination, navigate to next/previous page
   - [ ] tags and timestamp or other accessories
 - [ ] tags page
   - [ ] base implement for show a list of tags
