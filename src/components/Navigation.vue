@@ -8,7 +8,7 @@
             <div
               class="search-label search-tansition"
               v-if="!search"
-              @click="search = !search"
+              @click="searchTrigger"
               key="search-label"
             >search</div>
             <input
@@ -18,16 +18,17 @@
               v-focus
               v-model="input"
               placeholder="Search"
-              @blur="search = !search"
+              @blur="searchTrigger"
               key="search-input"
             >
           </transition>
         </keep-alive>
-        <ul class="search-result" v-if="searchResult">
+        <ul class="search-result" v-show="searchPanel" @mouseleave="closeSearchPanel">
           <li
             class="search-result-item"
             v-for="post in searchResult"
             :key="post.createdTimestamp"
+            @click="navigate(post.createdTimestamp)"
           >{{ post.title }}</li>
         </ul>
       </div>
@@ -45,17 +46,49 @@ export default {
       title: this.$store.state.title,
       input: '',
       search: false,
+      searchPanel: false,
     }
   },
   computed: {
     ...mapState(['list']),
     searchResult() {
       const i = this.input
-      if (i && this.search) {
+      if (i) {
         const posts = Object.values(this.list)
         return posts.filter(p => new RegExp(i).test(p.title))
       }
       return false
+    },
+  },
+  methods: {
+    /**
+     * Navigate to post viewer.
+     */
+    navigate(to) {
+      this.$router.push(`/posts/${to}`)
+      this.searchPanel = false
+    },
+    /**
+     * Trigger search input box display or not.
+     */
+    searchTrigger() {
+      this.search = !this.search
+    },
+    /**
+     * Close search result panel when mouse leave.
+     */
+    closeSearchPanel() {
+      this.searchPanel = false
+    },
+  },
+  watch: {
+    /**
+     * Watch search flag for open search result panel.
+     */
+    search() {
+      if (this.search) {
+        this.searchPanel = true
+      }
     },
   },
   directives: {
@@ -94,6 +127,7 @@ export default {
       margin-left: auto;
       font-family: inherit;
       align-self: flex-end;
+      position: relative;
 
       .search-label {
         color: white;
@@ -118,21 +152,27 @@ export default {
       }
       .search-result {
         position: absolute;
+        transform: translate3d(-5rem, 0.5rem, 0);
         background-color: white;
         display: block;
-        top: 45px;
-        right: 50px;
         width: 15rem;
-        padding: 0 0.5rem;
+        z-index: 99;
+        padding: 0;
+        box-shadow: 0 0 15px #999;
 
         .search-result-item {
+          font-family: Georgia, 'Times New Roman', Times, serif;
+          padding: 0 0.5rem;
           list-style: none;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
+          cursor: pointer;
+          background-color: white;
 
-          &:not(:last-child) {
-            border-bottom: 1px solid #333;
+          &:hover {
+            color: white;
+            background-color: #333;
           }
         }
       }
