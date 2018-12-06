@@ -62,10 +62,10 @@ Just a list for what I wanna implement.
 
 Notice that do not mean task listed below must be implemented in the future. Things could be changed at anytime.
 
-- [ ] homepage for show post list
+- [x] homepage for show post list
   - [x] base implement for show the post list
   - [x] pagination, just a load more button
-  - [ ] searching
+  - [x] searching
 - [ ] post viewer page, parse and display markdown posts
   - [x] base implement for display and parse markdown
   - [x] comment support with gitalk
@@ -81,6 +81,7 @@ Notice that do not mean task listed below must be implemented in the future. Thi
   - [ ] font settings
   - [ ] change markdown code block styles on the fly
 - [ ] i18n if possible
+- [ ] extract all configuration into single file for quick configure
 
 ## Dependencies
 
