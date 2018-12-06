@@ -23,7 +23,12 @@
             >
           </transition>
         </keep-alive>
-        <ul class="search-result" v-show="search || searchPanel" @mouseleave="closeSearchPanel">
+        <ul
+          class="search-result"
+          v-show="search || searchPanel"
+          @mouseleave="searchPanelTrigger(false)"
+          @mouseenter="searchPanelTrigger(true)"
+        >
           <li
             class="search-result-item"
             v-for="post in searchResult"
@@ -75,20 +80,10 @@ export default {
       this.search = !this.search
     },
     /**
-     * Close search result panel when mouse leave.
+     * Trigger search result panel.
      */
-    closeSearchPanel() {
-      this.searchPanel = false
-    },
-  },
-  watch: {
-    /**
-     * Watch search flag for open search result panel.
-     */
-    search() {
-      if (this.search) {
-        this.searchPanel = true
-      }
+    searchPanelTrigger(b) {
+      this.searchPanel = b
     },
   },
   directives: {
