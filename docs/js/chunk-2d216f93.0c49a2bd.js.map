@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/_posts/testDynamicImport.md"],"names":["module","exports"],"mappings":"iGAAAA,EAAAC,QAAA","file":"js/chunk-2d216f93.0c49a2bd.js","sourcesContent":["module.exports = \"# This file is just for test Dynamic Import\\n\\nSome texts here.\\n\""],"sourceRoot":""}
