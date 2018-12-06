@@ -62,26 +62,26 @@ Just a list for what I wanna implement.
 
 Notice that do not mean task listed below must be implemented in the future. Things could be changed at anytime.
 
-- [x] homepage for show post list
-  - [x] base implement for show the post list
-  - [x] pagination, just a load more button
-  - [x] searching
-- [ ] post viewer page, parse and display markdown posts
-  - [x] base implement for display and parse markdown
-  - [x] comment support with gitalk
-  - [x] pagination, navigate to next/previous page
-  - [ ] tags and timestamp or other accessories
+- [x] `basic` homepage for show post list
+  - [x] `basic` base implement for show the post list
+  - [x] `basic` pagination, just a load more button
+  - [x] `basic` searching
+- [ ] `basic` post viewer page, parse and display markdown posts
+  - [x] `basic` base implement for display and parse markdown
+  - [x] `basic` comment support with gitalk
+  - [x] `basic` pagination, navigate to next/previous page
+  - [ ] `basic` tags and timestamp or other accessories
   - [ ] show a placeholder when loading is not finished (current is appear suddenly when loading is finished)
-- [ ] tags page
-  - [ ] base implement for show a list of tags
-  - [ ] tag filter
-- [ ] theme settings, for change color themes
-  - [ ] another transition for mouse hover on the post list, current one is not looks so good
-  - [ ] dark colors
-  - [ ] font settings
+- [ ] `basic` tags page
+  - [ ] `basic` base implement for show a list of tags
+  - [ ] `basic` tag filter
+- [ ] `basic` theme settings, for change color themes
+  - [ ] `basic` another transition for mouse hover on the post list, current one is not looks so good
+  - [ ] `basic` dark colors
+  - [ ] `basic` font settings
   - [ ] change markdown code block styles on the fly
 - [ ] i18n if possible
-- [ ] extract all configuration into single file for quick configure
+- [ ] `basic` extract all configuration into single file for quick configure
 
 ## Dependencies
 
