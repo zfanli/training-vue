@@ -23,7 +23,7 @@
             >
           </transition>
         </keep-alive>
-        <ul class="search-result" v-show="searchPanel" @mouseleave="closeSearchPanel">
+        <ul class="search-result" v-show="search || searchPanel" @mouseleave="closeSearchPanel">
           <li
             class="search-result-item"
             v-for="post in searchResult"
@@ -159,6 +159,9 @@ export default {
         z-index: 99;
         padding: 0;
         box-shadow: 0 0 15px #999;
+        max-height: 60vh;
+        overflow-y: scroll;
+        border-radius: 5px;
 
         .search-result-item {
           font-family: Georgia, 'Times New Roman', Times, serif;
