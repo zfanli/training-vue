@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import PageNotFound from './components/PageNotFound.vue';
-import store from './store';
-import ListPosts from './views/ListPosts.vue';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import PageNotFound from './components/PageNotFound.vue'
+import store from './store'
+import ListPosts from './views/ListPosts.vue'
 
 Vue.use(VueRouter)
 
@@ -26,6 +26,11 @@ export default new VueRouter({
           next()
         }
       },
+    },
+    {
+      path: '/tags',
+      component: () =>
+        import(/* webpackChunkName: "tags-list" */ './views/ListTags.vue'),
     },
     // Below is the page not found handler
     {

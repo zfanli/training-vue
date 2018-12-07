@@ -41,6 +41,12 @@ export default new Vuex.Store({
     hasMorePosts(state, getters) {
       return state.size < getters.length
     },
+    // A list stored all tags.
+    tagsList(_, getters) {
+      const tagsObject = {}
+      getters.listArray.map(p => p.tags.forEach(t => (tagsObject[t] = null)))
+      return Object.keys(tagsObject)
+    },
   },
   mutations: {
     // Set new post body

@@ -1,7 +1,7 @@
 <template>
   <nav class="nav">
     <div class="nav-body">
-      <router-link class="logo" to="/">{{ title }}</router-link>
+      <router-link class="logo nav-link" to="/">{{ title }}</router-link>
       <div class="nav-search">
         <keep-alive>
           <transition name="s" mode="out-in">
@@ -37,6 +37,7 @@
           >{{ post.title }}</li>
         </ul>
       </div>
+      <router-link class="tags nav-link" to="/tags">tags</router-link>
     </div>
   </nav>
 </template>
@@ -121,7 +122,7 @@ export default {
     flex-grow: 1;
     display: flex;
 
-    .logo {
+    .nav-link {
       color: white;
       cursor: pointer;
       text-decoration: none;
@@ -145,7 +146,8 @@ export default {
         width: 10rem;
         border: none;
         transition: all 0.1s linear;
-        padding: 0.5rem;
+        margin: 0 0.5rem;
+        padding: .5rem;
         outline: none;
         border-radius: 5px;
         text-align: center;
