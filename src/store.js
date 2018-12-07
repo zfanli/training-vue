@@ -11,58 +11,33 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    /**
-     * An overview of all posts.
-     */
+    // An overview of all posts.
     list: data,
-    /**
-     * Title shows on the navigation.
-     */
+    // Title shows on the navigation.
     title: 'richard zg',
-    /**
-     * Display size on homepage.
-     */
+    // Display size on homepage.
     size: 15,
-    /**
-     * Load size for every times load more button is clicked.
-     */
+    // Load size for every times load more button is clicked.
     loadSize: 10,
   },
   getters: {
-    /**
-     * All post ids. Order by time desc.
-     * @param {*} state
-     */
+    // All post ids. Order by time desc.
     listIds(state) {
       return Object.keys(state.list).sort((x, y) => x > y)
     },
-    /**
-     * Posts to display on homepage, limit by `state.size`.
-     * @param {*} state
-     * @param {*} getters
-     */
+    // Posts to display on homepage, limit by `state.size`.
     listArray(state, getters) {
       return getters.listIds.slice(0, state.size).map(id => state.list[id])
     },
-    /**
-     * The true length of the list(array) that contains all posts.
-     * @param {*} getters
-     */
+    // The true length of the list(array) that contains all posts.
     length(_, getters) {
       return getters.listIds ? getters.listIds.length : 0
     },
-    /**
-     * A flag shows there has posts can be display on the homepage.
-     * @param {*} getters
-     */
+    // A flag shows there has posts can be display on the homepage.
     hasPosts(_, getters) {
       return getters.length > 0
     },
-    /**
-     * A flag shows there are more posts haven't be displayed.
-     * @param {*} state
-     * @param {*} getters
-     */
+    // A flag shows there are more posts haven't be displayed.
     hasMorePosts(state, getters) {
       return state.size < getters.length
     },
