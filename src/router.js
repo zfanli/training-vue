@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import store from './store'
-import PageNotFound from './views/PageNotFound.vue'
-import PostList from './views/PostList.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import PageNotFound from './components/PageNotFound.vue';
+import store from './store';
+import ListPosts from './views/ListPosts.vue';
 
 Vue.use(VueRouter)
 
@@ -10,12 +10,12 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      component: PostList,
+      component: ListPosts,
     },
     {
       path: '/posts/:id',
       component: () =>
-        import(/* webpackChunkName: "post-viewer" */ './views/PostViewer.vue'),
+        import(/* webpackChunkName: "viewer-post" */ './views/ViewerPost.vue'),
       props: true,
       beforeEnter(to, from, next) {
         const id = to.params.id
