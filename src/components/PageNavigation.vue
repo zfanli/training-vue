@@ -50,12 +50,23 @@ export default {
     return {
       title: this.$store.state.title,
       input: '',
+      // flag for trigger search box display
       search: false,
+      // the 2nd flag for trigger search result panel display
+      // for search result panel, `search` is the 1st flag to trigger display
+      // and only when mouse enter the area, this flag will be set to true
+      // when mouse is out of the area of panel, the flag will be set to false
+      // it means trigger for this flag should be apply on mouseenter/mouseout event
+      // finally the root reason it exstis is for keep display when search box is gone
+      // but user is still watching at the result panel
       searchPanel: false,
     }
   },
   computed: {
     ...mapState(['list']),
+    /**
+     * Compute result when input was changed.
+     */
     searchResult() {
       const i = this.input
       if (i) {
