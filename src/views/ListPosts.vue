@@ -103,7 +103,6 @@ export default {
 
       .list-item-timestamp {
         line-height: 1;
-        font-family: 'Courier New', Courier, monospace;
         text-align: right;
         padding: 0;
         margin: 0;
@@ -126,7 +125,6 @@ export default {
           font-size: 1.2rem;
           display: inline;
           cursor: pointer;
-          font-family: Georgia, 'Times New Roman', Times, serif;
         }
 
         .list-item-tags {
@@ -157,10 +155,10 @@ export default {
     text-align: center;
     font-size: 85%;
     color: #333;
-    font-family: 'Courier New', Courier, monospace;
   }
 
   .post-list-load-more-button {
+    font-weight: inherit;
     cursor: pointer;
     border: none;
     font-family: inherit;

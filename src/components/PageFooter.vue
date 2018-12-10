@@ -17,6 +17,5 @@ export default {
   line-height: 1.5rem;
   flex-shrink: 0;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
 }
 </style>
