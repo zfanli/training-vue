@@ -10,7 +10,7 @@
               v-if="!search"
               @click="searchTrigger"
               key="search-label"
-            >search</div>
+            >Search</div>
             <input
               class="search-box search-tansition"
               type="text"
@@ -37,7 +37,7 @@
           >{{ post.title }}</li>
         </ul>
       </div>
-      <router-link class="tags nav-link" to="/tags">tags</router-link>
+      <router-link class="tags nav-link" to="/tags">Tags</router-link>
     </div>
   </nav>
 </template>
@@ -70,9 +70,14 @@ export default {
      */
     searchResult() {
       const i = this.input
-      if (i) {
-        const posts = Object.values(this.list)
-        return posts.filter(p => new RegExp(i).test(p.title))
+      try {
+        const reg = new RegExp(i)
+        if (i) {
+          const posts = Object.values(this.list)
+          return posts.filter(p => reg.test(p.title))
+        }
+      } catch (_) {
+        return false
       }
       return false
     },
@@ -118,7 +123,6 @@ export default {
   flex-shrink: 0;
 
   .nav-body {
-    font-family: 'Courier New', Courier, monospace;
     flex-grow: 1;
     display: flex;
 
@@ -126,7 +130,6 @@ export default {
       color: white;
       cursor: pointer;
       text-decoration: none;
-      text-transform: lowercase;
       flex-shrink: 0;
     }
 
@@ -147,7 +150,7 @@ export default {
         border: none;
         transition: all 0.1s linear;
         margin: 0 0.5rem;
-        padding: .5rem;
+        padding: 0.5rem;
         outline: none;
         border-radius: 5px;
         text-align: center;
