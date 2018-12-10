@@ -14,7 +14,7 @@ export default new Vuex.Store({
     // An overview of all posts.
     list: data,
     // Title shows on the navigation.
-    title: 'richard zg',
+    title: 'Richard Zg',
     // Display size on homepage.
     size: 15,
     // Load size for every times load more button is clicked.
