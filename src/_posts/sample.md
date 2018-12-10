@@ -12,7 +12,7 @@ Commodo torquent praesent justo neque vehicula felis, dui turpis nunc leo ut Tel
 
 Aliquam dapibus feugiat vivamus habitasse vestibulum consectetuer id.
 
-Test something like \`this\`, _this_, and **this**.
+Test something like `this`, _this_, and **this**.
 
 ```js
 const text = 'Hello World.'
